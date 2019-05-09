@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "CoroutineSupport",
+	"Description": "Support for C++ Coroutine TS with native UE4 types.",
+	"Category": "Other",
+	"CreatedBy": "George Rolfe",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CoroutineSupport",
+			"Type": "Developer",
+			"LoadingPhase": "PreDefault"
+		}
+	]
+}
