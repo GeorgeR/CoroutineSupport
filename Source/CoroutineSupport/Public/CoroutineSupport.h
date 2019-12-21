@@ -4,22 +4,24 @@
 
 #include "Async/Future.h"
 
-#if !defined(WITH_CO_AWAIT)
-	#if defined(_MSC_VER)
-		#if (_MSC_FULL_VER >= 190023506)
-			#if defined(_RESUMABLE_FUNCTIONS_SUPPORTED)
-			#define WITH_CO_AWAIT 1
-			#endif
-		#endif
-	#elif defined(__clang__)
-		#if (__cpp_coroutines >= 201703)
-			#if __has_include(<experimental/coroutine>)
-			#define WITH_CO_AWAIT 1
-			#endif
-		#endif
-	#else
-	#define WITH_CO_AWAIT 0
+#if PLATFORM_WINDOWS
+#include "Windows/WindowsSystemIncludes.h"
+#endif
+
+#if PLATFORM_WINDOWS && defined(_MSC_VER)
+	#if (_MSC_FULL_VER >= 190023506)
+        #include <experimental/resumable>
+// _RESUMABLE_FUNCTIONS_SUPPORTED
+		#define WITH_CO_AWAIT 1
 	#endif
+#elif defined(__clang__)
+	#if (__cpp_coroutines >= 201703)
+		//#if __has_include(<experimental/coroutine>)
+		#define WITH_CO_AWAIT 1
+		//#endif
+	#endif
+#else
+#define WITH_CO_AWAIT 0
 #endif
 
 #if WITH_CO_AWAIT

@@ -4,8 +4,8 @@
 
 #include "Modules/ModuleManager.h"
 
-class FCoroutineSupportModule
-	: public IModuleInterface
+class FCoroutineSupportModule final
+    : public IModuleInterface
 {
 public:
 };

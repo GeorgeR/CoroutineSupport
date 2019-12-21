@@ -13,10 +13,13 @@ public class CoroutineSupport : ModuleRules
 				"Core",
 			});
 
-		PrivateDependencyModuleNames.AddRange(
-			new string[]
-			{
-				"Engine",
-			});
-	}
+        PrivateDependencyModuleNames.AddRange(
+            new string[]
+            {
+                "Engine",
+            });
+
+        var bSupported = Target.CppStandard >= CppStandardVersion.Cpp17;
+        PublicDefinitions.Add(string.Format("WITH_CO_AWAIT={0}", bSupported ? 1 : 0));
+    }
 }
