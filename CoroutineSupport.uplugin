@@ -16,7 +16,7 @@
 	"Modules": [
 		{
 			"Name": "CoroutineSupport",
-			"Type": "Developer",
+			"Type": "Runtime",
 			"LoadingPhase": "PreDefault"
 		}
 	]
